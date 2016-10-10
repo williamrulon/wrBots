@@ -29,7 +29,7 @@
     )
   }
 
-  for (var i = 0; i < 101; i++) {
+  for (let i = 0; i < 101; i++) {
     let div = document.createElement('div')
     document
     .querySelector('.row')
@@ -37,7 +37,6 @@
     }
 
     function randomizeRow(rowDiv) {
-      console.log(rowDiv.childNodes)
       for (let i = 0; i < rowDiv.childNodes.length; i++) {
         let div = rowDiv.childNodes[i]
         div.classList
@@ -57,10 +56,8 @@
         .appendChild(clone)
       processRow(clone, lastRow)
     }
-    duplicateRow()
 
     function processRow(rowDiv, parentRowDiv) {
-      console.log(rowDiv.childNodes)
       for (let i = 0; i < rowDiv.childNodes.length; i++) {
         let target = rowDiv.childNodes[i]
         let prevSelf = parentRowDiv.childNodes[i]
@@ -72,30 +69,18 @@
           parentRowDiv.childNodes[0]
 
           // First Rule
-          let x = setActiveIfMatchesRule
+          let toggleClass = setActiveIfMatchesRule
             .bind(null, target, leftSibling, prevSelf, rightSibling)
 
-            x([1,1,1])
-            /*
-        if(
-          isActive(leftSibling) &&
-          isActive(prevSelf) &&
-          isActive(rightSibling)
-        ) {
-          setIsActive(target, false)
-        }else if (
-          isActive(leftSibling) &&
-          isActive(prevSelf) &&
-          !isActive(rightSibling)
-        ) {
-          setIsActive(target, true)
-        } else if (
-          isActive(leftSibling) &&
-          !isActive(prevSelf) &&
-          isActive(rightSibling)
-        ) {
-          setIsActive(target, false)
-        }*/
+        toggleClass([1,1,1], false)
+        toggleClass([1,1,0], true)
+        toggleClass([1,0,1], false)
+        toggleClass([1,0,0], false)
+        toggleClass([0,1,1], true)
+        toggleClass([0,1,0], false)
+        toggleClass([0,0,1], false)
+        toggleClass([0,0,0], true)
+
       }
     }
 
@@ -104,17 +89,19 @@
       leftSibling,
       prevSelf,
       rightSibling,
-      rule) {
+      rule,
+      ruleValue
+    ) {
         let matchesRole =
           state(leftSibling) === rule[0] &&
-          state(leftSibling) === rule[1] &&
-          state(leftSibling) === rule[2]
+          state(prevSelf) === rule[1] &&
+          state(rightSibling) === rule[2]
         if(matchesRole)
-          setIsActive(target, true)
+          setIsActive(target, ruleValue)
     }
 
 
-    function isActive(cellDiv) {
+    function state(cellDiv) {
       return cellDiv.classList.contains('active') ? 1 : 0
     }
     function setIsActive(cellDiv, isActive){
@@ -126,7 +113,8 @@
         cellDiv.classList.add('inactive')
         }
     }
-
+    setInterval(duplicateRow, 100
+    )
   </script>
 </body>
 </html>
