@@ -6,8 +6,7 @@ var connector = new builder.ChatConnector({
     appPassword: null
 });
 
-var bot = new builder.UniversalBot(connector);
-
+var bot = new builder.UniversalBot(connector); 
 
 /*bot.dialog('/', function(session){
     //session.send('Hello, bot!');
@@ -29,4 +28,3 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
     console.log('%s listening to %s', server.name, server.url);
 });
 server.post('/api/messages', connector.listen());
-
