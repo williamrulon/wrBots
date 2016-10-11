@@ -35,7 +35,7 @@ bot.dialog('/ensureProfile', [
     if (results.response) {
       session.dialogdata.profile.name = results.response;
     } else {
-
+      
     }
   }
 ])
