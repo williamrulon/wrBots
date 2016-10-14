@@ -2,6 +2,8 @@
   "dependencies": {
     "botbuilder": "^3.3.0",
     "jQuery": "^1.7.4",
-    "restify": "^4.1.1"
+    "jsdom": "^9.6.0",
+    "restify": "^4.1.1",
+    "sketch.js": "^1.1.1"
   }
 }

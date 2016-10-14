@@ -1,6 +1,7 @@
 var builder = require('botbuilder');
 var restify = require('restify');
 var jQuery = require('jQuery');
+var jsdom = require('jsdom');
 
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
@@ -23,7 +24,6 @@ bot.dialog('/', [
     session.send('The weather is' + weather, session.userData.profile);
   }
 ]);
-var weather = function ({
   jQuery(document).ready(function($) {
     $.ajax({
     url : "http://api.wunderground.com/api/e6e7616a96f73169/geolookup/conditions/q/IA/Cedar_Rapids.json",
@@ -35,4 +35,3 @@ var weather = function ({
     }
     });
   });
-});

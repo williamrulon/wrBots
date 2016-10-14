@@ -1,13 +1,14 @@
 var builder = require('botbuilder');
 var restify = require('restify');
+var sketch = require('sketch')
 
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
     console.log('%s listening to %s', server.name, server.url);
 });
 var connector = new builder.ChatConnector({
-    appId: null,
-    appPassword: null
+    appId: "84a47283-7f29-492f-b1c7-7d37cccc79fd",
+    appPassword: "MO2jUNoQxdDcWsxz7GksAZn"
 });
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
@@ -35,7 +36,7 @@ bot.dialog('/ensureProfile', [
     if (results.response) {
       session.dialogdata.profile.name = results.response;
     } else {
-      
+
     }
   }
 ])
