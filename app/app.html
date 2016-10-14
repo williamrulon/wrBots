@@ -1,4 +1,4 @@
-<!doctype HTML>
+<!Doctype HTML>
 <html>
   <head>
     <style>
@@ -13,48 +13,16 @@
       margin: 20px;
     }
     </style>
+    <script src="node_modules/jQuery/tmp/jquery.js"></script>
+    <script src="jsonpath.js"></script>
+
   </head>
   <body>
     <div>
-    <img id="gif" src="" onclick="changeImage(this)" >
+    <img id="gif" src="">
     <input type="text" id="input"></input>
     <button id="button">Get Giphy</button>
   </div>
-  <script>
-  document.getElementById('button').onclick = function() {
-  var userInput = document.getElementById('input').value;
-  var api = "http://api.giphy.com/v1/gifs/random?";
-  var apiKey = "&api_key=dc6zaTOxFJmzC";
-  var query = "&q=" + userInput;
-  var url = api + apiKey + query;
-  function initialize() {
-    var url = api + apiKey + query;
-    document.getElementById('gif').replace(src)
-  };
-  function getData(giphy){
-    document.getElementById('gif').src = function() {
-      var endpoint = [img(giphy.data[0].images.original.url)];
-    }
-};
-function changeImage(element) {
-   element.src = url + endpoint;
-//I just need to figure out how to change the src of my gif
-//This is the JSON rought to the img(giphy.data[0].images.original.url);
-//getJSON(url, getData);
-}
-/*
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}*/
-console.log(changeImage);
-console.log(url);
-}
-  </script>
+  <script src="test.js"></script>
   </body>
 </html>
