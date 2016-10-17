@@ -1,23 +1,15 @@
-function (){
-  document.getElementById('button').onclick = function() {
-    var userInput = document.getElementById('input').value;
-    var api = "http://api.giphy.com/v1/gifs/random?";
-    var apiKey = "&api_key=dc6zaTOxFJmzC";
-    var query = "&q=" + userInput;
-    function initialize() {
-      var url = api + apiKey + query;
-      document.getElementById('gif').replace(src) = endpoint;
-    };
+//when you click the button runs the function
+document.getElementById('button').onclick = function() {
+  var userInput = document.getElementById('input').value;
+  //calling api
+  var api = "http://api.giphy.com/v1/gifs/random?";
+  var apiKey = "&api_key=dc6zaTOxFJmzC";
+  var query = "&q=" + userInput;
+  //combining all of the above veriable to be make a proper url
+  var url = api + apiKey + query;
+  // ^ this stuff works v this stuff doesnt.
+  document.getElementById('gif').src = JASON.jsonPath(url, "$.images.original.url",
+   {resultType:"$.giphy.data[0].images.original.url"});
 
-    function gotData(giphy){
-        document.getElementById('gif').src = function() {
-      }
-    };
-    function changeImage(url, data) {
-      var endpoint = $.giphy.data[0].images.original.url;
-  //I just need to figure out how to change the src of my gif
-  //This is the JSON rought to the img (giphy.data[0].images.original.url);
-  //getJSON(url, getData);
-    }
-  }
-}
+  //res2 = jsonPath(o, $.giphy.data[0].images.original.url;, {resultType:$.giphy.data[0].images.original.url;}).toJSONString();
+};
