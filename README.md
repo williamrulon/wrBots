@@ -1,1 +1,2 @@
-# DaijoBot is a bot that "when finnished" will play all my dankest memes in discord
+# DaijouBot
+DaijouBot is a bot that "when finnished" will play all my dankest memes in discord
