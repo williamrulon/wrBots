@@ -1,7 +1,7 @@
 //this code gets discord.js
 const Discord = require('discord.js');
 //this one makes a shortcut to the client
-const bot = new Discord.Client({"autoReconnect":true});
+const bot = new Discord.Client();
 //const connect = require('../structures/VoiceChannel');
 
 //this gives me a message when the bot boots
@@ -38,10 +38,10 @@ bot.on('message', message => {
   // I want the bot to join a call lobby before playing the video
   // right now its just posting a link to a video I wnt her to play it!!!
 
-if (message.content.startsWith(prefix + 'crabman')) {
+else if (message.content.startsWith(prefix + 'crabman')) {
     message.channel.sendMessage('https://www.youtube.com/watch?v=voQ38Pvw3Rc');
   }
-if (message.content.startsWith(prefix + 'fine')) {
+else if (message.content.startsWith(prefix + 'fine')) {
       message.channel.sendMessage('https://www.youtube.com/watch?v=5PdXIHGvMpk');
   }
 
