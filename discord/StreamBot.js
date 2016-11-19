@@ -18,7 +18,7 @@ var commands = {};
 //when you type message a thing will happen
 bot.on('message', message => {
   var content = message.content;
-  var auther = message.auther;
+  var author = message.author;
   var channel = message.channel;
   var guild = message.guild;
   //this is so the bot can't talk to itself
