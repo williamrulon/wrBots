@@ -26,9 +26,13 @@ var items = [
   'https://pbs.twimg.com/media/CaQOhYKVIAAOV99.jpg',
   'https://pbs.twimg.com/media/CaQOhYKUAAA-Mn3.jpg',
   'https://pbs.twimg.com/media/Cv8pSI2WAAACZ9y.jpg',
-  'http://cdn1-www.dogtime.com/assets/uploads/gallery/45-funny-dog-memes/cute-funny-dog-meme-20.jpg'
+  'http://cdn1-www.dogtime.com/assets/uploads/gallery/45-funny-dog-memes/cute-funny-dog-meme-20.jpg',
+  'https://giphy.com/gifs/takeshi-kitano-kikujiro-beat-HDfH1JOfoDuSc',
+  'https://cdn.discordapp.com/attachments/247215963295055872/247950519430152193/unknown.png',
+  'https://vine.co/v/5bMKnzdptTY',
+  'https://s-media-cache-ak0.pinimg.com/564x/c3/f7/39/c3f739c8db6e8161d08ba1c0c66a970f.jpg',
+  'http://www.relatably.com/m/img/adorable-memes-tumblr/tumblr_njoygqAIlR1tj1uzko1_1280.jpg'
 ];
-var item = items[Math.floor(Math.random() * items.length)];
 //when you type message a thing will happen
 bot.on('message', message => {
   //this is so the bot can't talk to itself
@@ -61,6 +65,7 @@ bot.on('message', message => {
       message.channel.sendMessage('https://www.youtube.com/watch?v=5PdXIHGvMpk');
   }
   else if (message.content.startsWith(prefix + '???')) {
+    var item = items[Math.floor(Math.random() * items.length)];
     message.channel.sendMessage(item);
   }
 
