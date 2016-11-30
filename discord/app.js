@@ -1,60 +1,25 @@
-//this code gets discord.js
 const Discord = require('discord.js');
-//this one makes a shortcut to the client
+const items = require('./items.json');
 const bot = new Discord.Client();
-//const connect = require('../structures/VoiceChannel');
-//this gives me a message when the bot boots
+const prefix = ".";
 bot.on('ready', () => {
   console.log('私は生きている!!!');
 });
 
-//this is what is put before the word so the bot know when to respond
-const prefix = ".";
-
-var items = [
-  'https://www.youtube.com/watch?v=YtEhX7mhDJc',
-  'https://www.youtube.com/watch?v=5PdXIHGvMpk',
-  'https://www.youtube.com/watch?v=voQ38Pvw3Rc',
-  'https://cdn.discordapp.com/attachments/168173696433782784/242868911475785729/Jk53KiJ.png',
-  'https://cdn.discordapp.com/attachments/168173696433782784/242836405179514880/5924519_1bd7b67fd49e1c541bf94a6cb2d996c7.jpg',
-  'https://www.youtube.com/watch?v=zdU635esPpQ&list=FLRlHHR_pGSJpXRaThY5_p0g&index=14',
-  'https://www.youtube.com/watch?v=YSDTPPM9qsc',
-  'https://giphy.com/gifs/quentin-tarantino-pulp-fiction-vincent-vega-3o7aTskHEUdgCQAXde',
-  'https://cdn.discordapp.com/attachments/200801929775939584/238508692318715904/5689d6388f5a5.jpg',
-  'https://cdn.discordapp.com/attachments/197522844136112128/240974340076601344/spiderjoubu.jpg',
-  'https://www.youtube.com/watch?v=3rnFlQAvk8U',
-  'https://pbs.twimg.com/media/CaQOhYKVIAAOV99.jpg',
-  'https://pbs.twimg.com/media/CaQOhYKUAAA-Mn3.jpg',
-  'https://pbs.twimg.com/media/Cv8pSI2WAAACZ9y.jpg',
-  'http://cdn1-www.dogtime.com/assets/uploads/gallery/45-funny-dog-memes/cute-funny-dog-meme-20.jpg',
-  'https://giphy.com/gifs/takeshi-kitano-kikujiro-beat-HDfH1JOfoDuSc',
-  'https://cdn.discordapp.com/attachments/247215963295055872/247950519430152193/unknown.png',
-  'https://vine.co/v/5bMKnzdptTY',
-  'https://s-media-cache-ak0.pinimg.com/564x/c3/f7/39/c3f739c8db6e8161d08ba1c0c66a970f.jpg',
-  'http://www.relatably.com/m/img/adorable-memes-tumblr/tumblr_njoygqAIlR1tj1uzko1_1280.jpg'
-];
-//when you type message a thing will happen
 bot.on('message', message => {
   //this is so the bot can't talk to itself
   if(message.author.bot) return;
-  //this is if the message dosnt have the prefix
+  //this is if the message dont have the prefix
   if(!message.content.startsWith(prefix)) return;
 
-//and the memes start :^)
   if (message.content.startsWith(prefix + 'help')) {
-    message.channel.sendMessage('Command List:\n- ty1   - crabman\n- fire   - fine\n- daijo - kms\n - ???');
-  }
-  else if (message.content.startsWith(prefix + 'ty1')) {
-    message.channel.sendMessage('https://cdn.discordapp.com/attachments/168173696433782784/243158498479833088/ty1.png');
+    message.channel.sendMessage('Command List:\n- ethan   - crabman\n- fire   - fine\n- daijo  - ???');
   }
   else if (message.content.startsWith(prefix + 'fire')) {
     message.channel.sendMessage('https://cdn.discordapp.com/attachments/168173696433782784/242868911475785729/Jk53KiJ.png');
   }
   else if (message.content.startsWith(prefix + 'daijo')) {
     message.channel.sendMessage('https://cdn.discordapp.com/attachments/168173696433782784/242836405179514880/5924519_1bd7b67fd49e1c541bf94a6cb2d996c7.jpg');
-  }
-  else if (message.content.startsWith(prefix + 'kms')) {
-    message.channel.sendMessage(':^)');
   }
   // I want the bot to join a call lobby before playing the video
   // right now its just posting a link to a video I wnt her to play it!!!
@@ -64,16 +29,22 @@ bot.on('message', message => {
   else if (message.content.startsWith(prefix + 'fine')) {
       message.channel.sendMessage('https://www.youtube.com/watch?v=5PdXIHGvMpk');
   }
+  else if (message.content.startsWith(prefix + 'ethan')){
+    message.channel.sendMessage('https://www.youtube.com/watch?v=APxndget9l4')
+  }
+  else if (message.content.startsWith(prefix + 'play')) {
+    let modRole = message.guild.roles.find('name', 'DJ');
+    if(message.member.roles.has(modRole.id)) {
+      message.channel.sendMessage('K boss');
+    } else {
+      message.reply("You do not have the right role to perform this operation");
+    }
+  }
+  //end of music commands
   else if (message.content.startsWith(prefix + '???')) {
-    var item = items[Math.floor(Math.random() * items.length)];
+    let item = items.items[Math.floor(Math.random() * items.items.length)];
     message.channel.sendMessage(item);
   }
+}); // End message handeller
 
-
-  //I dont know if there is a better way to do this maybe
-  //- I can have all the commands in there own .js file?
-});
-
-
-
-bot.login('MjQ3OTAwMDYzOTA3NTc3ODU2.Cw1Gyw.Jl07wEWLioc9EUkwEUES42L-ZMA');
+bot.login('MjQ3OTAwMDYzOTA3NTc3ODU2.Cx-ptg.yt5EqjUjUHMwmsdJFlTDh1vYpRg');
