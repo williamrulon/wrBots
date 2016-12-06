@@ -66,6 +66,6 @@ bot.on('message', message => {
   }
 
 }); // End message handeller
-//bot.login(items.token);
+bot.login(items.token);
 //DaijoBot-^ WrBot-v
 //bot.login('MjM1NTQ2MzQwMDg2NjQ0NzM4.Cyf4zw.YVN5OTiOJdyo2iB7M-MWb1gh3CA');
