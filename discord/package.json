@@ -1,4 +1,6 @@
 {
+  "version": {0.1.0},
+  "creater": {"William Rulon"},
   "dependencies": {
     "discord.js": "^10.0.1",
     "jquery": "^3.1.1"
