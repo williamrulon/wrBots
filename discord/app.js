@@ -53,13 +53,8 @@ bot.on('message', message => {
     message.channel.sendMessage(item);
   }
   else if (message.content.startsWith(items.prefix + 'waifu')) {
-    let waifuRole = message.guild.roles.find('name', 'Waifu');
-    if(message.member.roles.has(waifuRole.id)) {
       let item = items.waifu[Math.floor(Math.random() * items.waifu.length)];
-      message.channel.sendMessage(item);
-    } else {
-      message.reply("Your not a Waifu");
-    }
+      message.channel.sendMessage(item).catch(console.error);
   }
   else if (message.content.startsWith(items.prefix + 'nice')) {
     message.channel.sendMessage('https://giphy.com/gifs/neonmob-nice-hearts-be-d2YYadXMVk6KhVBe');
@@ -75,6 +70,7 @@ bot.on('message', message => {
   }
 
 }); // End message handeller
+
 bot.login(items.token);
 //DaijoBot-^ WrBot-v
 //bot.login('MjM1NTQ2MzQwMDg2NjQ0NzM4.Cyf4zw.YVN5OTiOJdyo2iB7M-MWb1gh3CA');
