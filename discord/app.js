@@ -11,27 +11,18 @@ bot.on('message', message => {
   //this is so the bot can't talk to itself
   if(message.author.bot) return;
   if(!message.content.startsWith(items.prefix)) return;
-
-  if (message.content.startsWith(items.prefix + 'help')) {
-    message.channel.sendMessage('Command List:\n- crabman  - daijo\n- ethan   - fire\n- fine  - kermit\n- nice  - nope\n- fall  - waifu\n- ???');
-  }
-  else if (message.content.startsWith(items.prefix + 'fire')) {
-    message.channel.sendMessage('https://cdn.discordapp.com/attachments/168173696433782784/242868911475785729/Jk53KiJ.png');
-  }
-  else if (message.content.startsWith(items.prefix + 'daijo')) {
-    message.channel.sendMessage('https://cdn.discordapp.com/attachments/168173696433782784/242836405179514880/5924519_1bd7b67fd49e1c541bf94a6cb2d996c7.jpg');
-  }
+  //if(commands.hasOwnProperty(message.content.toLowerCase().slice(tokens.prefix.length).split(' ')[0])) commands[message.content.toLowerCase().slice(tokens.prefix.length).split(' ')[0]](message);
   //I want the bot to join a call lobby before playing the video
-  else if (message.content.startsWith(items.prefix + 'crabman')) {
+  else if(message.content.startsWith(items.prefix + 'crabman')) {
     message.channel.sendMessage('https://www.youtube.com/watch?v=voQ38Pvw3Rc');
   }
-  else if (message.content.startsWith(items.prefix + 'fine')) {
+  else if(message.content.startsWith(items.prefix + 'fine')) {
     message.channel.sendMessage('https://www.youtube.com/watch?v=5PdXIHGvMpk');
   }
-  else if (message.content.startsWith(items.prefix + 'ethan')){
+  else if(message.content.startsWith(items.prefix + 'ethan')){
     message.channel.sendMessage('https://www.youtube.com/watch?v=APxndget9l4')
   }
-  else if (message.content.startsWith(items.prefix + 'play')) {
+  else if(message.content.startsWith(items.prefix + 'play')) {
     let modRole = message.guild.roles.find('name', 'DJ');
     if(message.member.roles.has(modRole.id)) {
       message.channel.sendMessage('K boss');
@@ -40,34 +31,44 @@ bot.on('message', message => {
     }
   }
   //end of music commands
-  else if (message.content.startsWith(items.prefix + '???')) {
+  else if(message.content.startsWith(items.prefix + 'fire')) {
+    message.channel.sendMessage('https://cdn.discordapp.com/attachments/168173696433782784/242868911475785729/Jk53KiJ.png');
+  }
+  else if(message.content.startsWith(items.prefix + 'daijo')) {
+    message.channel.sendMessage('https://cdn.discordapp.com/attachments/168173696433782784/242836405179514880/5924519_1bd7b67fd49e1c541bf94a6cb2d996c7.jpg');
+  }
+  else if(message.content.startsWith(items.prefix + '???')) {
     let item = items.items[Math.floor(Math.random() * items.items.length)];
     message.channel.sendMessage(item);
   }
-  else if (message.content.startsWith(items.prefix + 'kermit')) {
+  else if(message.content.startsWith(items.prefix + 'kermit')) {
     let item = items.kermit[Math.floor(Math.random() * items.kermit.length)];
     message.channel.sendMessage(item);
   }
-  else if (message.content.startsWith(items.prefix + 'nope')) {
+  else if(message.content.startsWith(items.prefix + 'nope')) {
     let item = items.nope[Math.floor(Math.random() * items.nope.length)];
     message.channel.sendMessage(item);
   }
-  else if (message.content.startsWith(items.prefix + 'waifu')) {
+  else if(message.content.startsWith(items.prefix + 'waifu')) {
       let item = items.waifu[Math.floor(Math.random() * items.waifu.length)];
       message.channel.sendMessage(item).catch(console.error);
   }
-  else if (message.content.startsWith(items.prefix + 'nice')) {
+  else if(message.content.startsWith(items.prefix + 'nice')) {
     message.channel.sendMessage('https://giphy.com/gifs/neonmob-nice-hearts-be-d2YYadXMVk6KhVBe');
   }
-  else if (message.content.startsWith(items.prefix + 'fall')) {
+  else if(message.content.startsWith(items.prefix + 'fall')) {
     message.channel.sendMessage('https://i.makeagif.com/media/10-24-2015/f46awt.gif');
   }
-  else if (message.content.startsWith(items.prefix + 'chilldino')) {
+  else if(message.content.startsWith(items.prefix + 'chilldino')) {
     message.channel.sendMessage('https://www.youtube.com/playlist?list=PLFA067CBE79DBE316');
   }
-  else if (message.content.startsWith(items.prefix + 'x-mas')) {
+  else if(message.content.startsWith(items.prefix + 'x-mas')) {
     message.channel.sendMessage('https://33.media.tumblr.com/0dd1e925ac06e979d5b978536ccf1259/tumblr_nx5vuqgN5A1rle9u4o1_500.gif');
   }
+  else if(message.content.startsWith(items.prefix + 'sleepytime')) {
+    message.channel.sendMessage('https://www.youtube.com/watch?v=CHeSkF8g_RY');
+  }
+
 
 }); // End message handeller
 
