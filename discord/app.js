@@ -12,7 +12,7 @@ bot.on('message', msg => {
   if(msg.author.bot) return;
   if(!msg.content.startsWith(items.prefix)) return;
   if(commandIs('help', msg)) {
-    msg.channel.sendMessage('Command List:\n- crabman  - daijo\n- ethan   - fire\n- fine  - kermit\n- nice  - nope\n- fall  - waifu\n- ???  - sleepytime');
+    msg.channel.sendMessage('Command List:\n- crabman  - daijo\n- ethan   - fire\n- fine  - kermit\n- nice  - nope\n- fall  - waifu\n- ???  - sleepytime\n- bearbye  - uhoh');
   }
   else if(commandIs('crabman', msg)) {
     msg.channel.sendMessage('https://www.youtube.com/watch?v=voQ38Pvw3Rc');
@@ -21,19 +21,17 @@ bot.on('message', msg => {
     msg.channel.sendMessage('https://www.youtube.com/watch?v=5PdXIHGvMpk');
   }
   else if(commandIs('ethan', msg)){
-    msg.channel.sendMessage('https://www.youtube.com/watch?v=APxndget9l4')
+    msg.channel.sendMessage('https://www.youtube.com/watch?v=APxndget9l4');
   }
-  else if(commandIs('play', msg)) {
-    let modRole = msg.guild.roles.find('name', 'DJ');
-    if(msg.member.roles.has(modRole.id)) {
-      msg.channel.sendMessage('K boss');
-    } else {
-      msg.reply("You do not have the right role to perform this operation");
-    }
+  else if(commandIs('bearbye', msg)){
+    msg.channel.sendMessage('https://www.youtube.com/watch?v=9XrL_F6tnT4#t=4.08705');
+  }
+  else if(commandIs('uhoh', msg)) {
+    msg.channel.sendMessage('https://www.youtube.com/watch?v=8G541OW-fA4');
   }
   //end of music commands
   else if(commandIs('???', msg)) {
-    let item = items.items[Math.floor(Math.random() * items.items.length)];
+    let item = items.memes[Math.floor(Math.random() * items.memes.length)];
     msg.channel.sendMessage(item);
   }
   else if(commandIs('kermit', msg)) {
@@ -57,14 +55,12 @@ bot.on('message', msg => {
   else if(commandIs('chilldino', msg)) {
     msg.channel.sendMessage('https://www.youtube.com/playlist?list=PLFA067CBE79DBE316');
   }
-  else if(commandIs('x-mas', msg)) {
-    msg.channel.sendMessage('https://33.media.tumblr.com/0dd1e925ac06e979d5b978536ccf1259/tumblr_nx5vuqgN5A1rle9u4o1_500.gif');
-  }
   else if(commandIs('sleepytime', msg)) {
     msg.channel.sendMessage('https://www.youtube.com/watch?v=CHeSkF8g_RY');
   }
 }); // End message handeller
 
 bot.login(items.token);
-//DaijoBot-^ WrBot-v
-//bot.login('');
+
+//chistmas only
+//else if(commandIs('x-mas', msg)) {msg.channel.sendMessage('https://33.media.tumblr.com/0dd1e925ac06e979d5b978536ccf1259/tumblr_nx5vuqgN5A1rle9u4o1_500.gif');}
